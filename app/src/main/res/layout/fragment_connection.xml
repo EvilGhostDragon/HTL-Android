@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".ConnectionFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/refresh_connection">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:orientation="vertical">
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:background="@color/colorPrimaryDark"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+
+            >
+                <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Raspberry"
+                        android:paddingLeft="20dp"
+
+
+                        android:id="@+id/text_con_selecteddev"/>
+                <Switch
+                        android:id="@+id/switch_con_selecedev"
+                        android:layout_centerVertical="true"
+                        android:paddingRight="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+            </RelativeLayout>
+
+
+            <ListView
+                    android:id="@+id/listv_con_paired"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true" android:clickable="true" android:choiceMode="singleChoice"/>
+
+
+        </LinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</RelativeLayout>

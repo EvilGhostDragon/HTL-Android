@@ -18,7 +18,9 @@ import `in`.heis.drivysteuerung.htlinn.SelectMenu
 import android.app.Activity
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
+import android.widget.SeekBar
 import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.fragment_control_man.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
@@ -53,6 +55,7 @@ open class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemS
             Toast.makeText(this, "yes", Toast.LENGTH_LONG).show()
             getSharedPreferences(KEY, Context.MODE_PRIVATE).edit().putBoolean(KEY_IS_FIRST_TIME, false).apply()
         }
+
 
     }
 

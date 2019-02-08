@@ -3,19 +3,51 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context=".ControlFragmentMan">
+                tools:context=".ControlFragmentMan"
+                android:paddingBottom="50dp"
+                android:paddingTop="50dp"
+>
 
-    <Button android:id="@+id/button_ctr_man_on"
+    <Button android:id="@+id/button_ctr_man_stop"
             android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="on"
-            android:layout_centerInParent="true"
-            android:layout_alignParentTop="true"
-    />
-    <Button android:id="@+id/button_ctr_man_off"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="off"
+            android:text="STOP"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/button_ctr_man_on"/>
+            android:layout_alignParentTop="true"/>
+
+    <Button android:id="@+id/button_ctr_man_up"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="UP"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/button_ctr_man_stop"/>
+
+    <Button android:id="@+id/button_ctr_man_down"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="DOWN"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/button_ctr_man_up"
+    />
+    <Button android:id="@+id/button_ctr_man_left"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="LEFT"
+            android:layout_centerHorizontal="true"
+            android:layout_toLeftOf="@+id/button_ctr_man_stop"/>
+
+    <Button android:id="@+id/button_ctr_man_right"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="RIGHT"
+            android:layout_toRightOf="@+id/button_ctr_man_stop"
+    />
+
+
+
+    <SeekBar
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="10"
+            android:progress="3"
+            android:id="@+id/seekBar"/>
 
 
 </RelativeLayout>

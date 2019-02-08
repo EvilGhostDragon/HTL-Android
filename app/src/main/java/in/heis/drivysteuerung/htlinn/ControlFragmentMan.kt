@@ -61,6 +61,7 @@ class ControlFragmentMan : Fragment() {
 
             override fun onStartTrackingTouch(seekBar: SeekBar) {}
 
+
             override fun onStopTrackingTouch(seekBar: SeekBar) {}
 
 

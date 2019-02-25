@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context=".ControlFragmentMan"
-                android:paddingBottom="50dp"
-                android:paddingTop="50dp"
->
 
-    <Button android:id="@+id/button_ctr_man_stop"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="STOP"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentTop="true"/>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ControlFragmentMan"
+    android:paddingBottom="50dp"
+    android:paddingTop="50dp">
+
+
+    <Button
+        android:id="@+id/button_ctr_man_stop"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@null" />
 
     <Button android:id="@+id/button_ctr_man_up"
             android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -39,15 +45,60 @@
     />
 
 
-
     <SeekBar
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:max="10"
-            android:progress="3"
-            android:id="@+id/seekBar"/>
+        android:id="@+id/seekBar"
+        style="@android:style/Widget.Material.SeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:max="10"
+        android:progress="3" />
 
+    <RelativeLayout
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/dpad_mask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_margin="50dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/dpad_mask"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/dpad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_margin="50dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/dpad_normal" />
+
+        <ImageView
+            android:id="@+id/dpad_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_margin="50dp"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:src="@drawable/dpad_center" />
+
+        <ImageView
+            android:id="@+id/dpad_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_margin="50dp"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:src="@drawable/dpad_up" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

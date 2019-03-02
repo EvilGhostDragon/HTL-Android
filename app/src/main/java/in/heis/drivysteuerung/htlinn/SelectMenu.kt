@@ -1,25 +1,14 @@
 package `in`.heis.drivysteuerung.htlinn
 
-import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.PendingIntent.getActivity
-import android.content.Context
-import android.support.design.widget.NavigationView
-import android.support.v4.app.*
-import android.support.v7.app.AppCompatActivity
-import android.view.View
-import android.widget.LinearLayout
-import android.widget.Toast
-import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
 import android.view.MenuItem
-import kotlin.system.exitProcess
+import android.view.View
+import android.widget.Toast
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.abc_activity_chooser_view.*
-import kotlinx.android.synthetic.main.abc_screen_toolbar.*
-import kotlinx.android.synthetic.main.abc_search_view.*
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.design_bottom_sheet_dialog.*
 import kotlinx.android.synthetic.main.nav_header_main.*
+import kotlin.system.exitProcess
 
 
 class SelectMenu(val itemId: Int?, override val containerView: View?, val activity: Activity?) : LayoutContainer {
@@ -47,10 +36,9 @@ class SelectMenu(val itemId: Int?, override val containerView: View?, val activi
                 BluetoothConnection(containerView?.context!!).disconnect()
 
                 activity!!.nav_view.menu.findItem(R.id.nav_connection_disc).isEnabled = false
-                activity!!.nav_view.menu.findItem(R.id.nav_connection_con).isEnabled = true
+                activity.nav_view.menu.findItem(R.id.nav_connection_con).isEnabled = true
 
-                activity!!.nav_view.menu.findItem(R.id.nav_control_man).isEnabled = false
-                activity!!.nav_view.menu.findItem(R.id.nav_control_aut).isEnabled = false
+                activity.nav_view.menu.findItem(R.id.nav_control).isEnabled = false
 
                 text_nav_selecteddev.text = "Zurzeit keine aktive Verbindung"
 
@@ -75,8 +63,8 @@ class SelectMenu(val itemId: Int?, override val containerView: View?, val activi
                 ConnectionFragment()
             }
 
-            R.id.nav_control_man -> {
-                ControlFragmentMan()
+            R.id.nav_control -> {
+                ControlFragment()
             }
 
             R.id.nav_help_con -> {
@@ -92,33 +80,37 @@ class SelectMenu(val itemId: Int?, override val containerView: View?, val activi
             .replace(R.id.ContentPlaceholder, fragment)
             .commit()
 
-        if (activity!!.nav_view.menu.findItem(itemId!!) != null) {
+        if (activity.nav_view.menu.findItem(itemId!!) != null) {
 
-            val id: MenuItem? = activity!!.nav_view.checkedItem
+            val id: MenuItem? = activity.nav_view.checkedItem
             id?.isChecked = false
-            activity!!.nav_view.menu.findItem(itemId!!).isChecked = true
+            activity.nav_view.menu.findItem(itemId).isChecked = true
         }
         return true
     }
 
-
-    open fun makeNewLayout() {
+    /**
+     * Funktion: makeNewLayout
+     * Input/Output: -
+     * Beschreibung: Nach erfolgreichen Verbinden mit RasPi/Arduino wird der Steuerbereich der App und der Verbindung trennen Button aktiviert. Deaktiverit wird der Verbindung herstellen Button
+     *                  (1) Dialog mit Hinweis ob Verbindung erfolgreich war
+     *                  (2) Aktivierung und Deaktivierung der genannten Menus
+     *                  (3) Weiterleiung auf das Homefragment
+     */
+    fun makeNewLayout() {
 
 
         var selectedDivText: String =
             "Mit ${ConnectionFragment.selectedDevice} verbunden\n${ConnectionFragment.selectedAdress}"
-        println(BluetoothConnection.m_isConnected.toString())
+        //println(BluetoothConnection.m_isConnected.toString())
 
-        println(view)
-        println(act)
         if (!BluetoothConnection.m_isConnected) CreateAlertdialog(
             view?.context!!,
-            "Verbindung konnte nicht aufgebaut werden"
+            "Verbindung konnte nicht aufgebaut werden. Überprüfe deine Einstellungen und ob dein Roboter in Reichweite steht. \n\nWeitere Hilfe findest du im Hilfebereich."
             , null
         ).error()
         else {
-            act!!.nav_view.menu.findItem(R.id.nav_control_man).isEnabled = true
-            act!!.nav_view.menu.findItem(R.id.nav_control_aut).isEnabled = true
+            act!!.nav_view.menu.findItem(R.id.nav_control).isEnabled = true
             act!!.nav_view.menu.findItem(R.id.nav_connection_disc).isEnabled = true
             act!!.nav_view.menu.findItem(R.id.nav_connection_con).isEnabled = false
 

@@ -12,24 +12,12 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
-import android.widget.Toast
-import kotlinx.android.synthetic.main.fragment_control_man.*
-import kotlinx.android.synthetic.main.fragment_control_man.view.*
-
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- *
- */
+import kotlinx.android.synthetic.main.fragment_control.view.*
 
 
 @Suppress("DEPRECATION")
-class ControlFragmentMan : Fragment() {
+class ControlFragment : Fragment() {
+    var prevPixel = -16908288
 
 
     override fun onCreateView(
@@ -38,7 +26,7 @@ class ControlFragmentMan : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        return inflater.inflate(R.layout.fragment_control_man, container, false)
+        return inflater.inflate(R.layout.fragment_control, container, false)
     }
 
 
@@ -66,16 +54,15 @@ class ControlFragmentMan : Fragment() {
         }
         //BluetoothConnection(context!!).execute()
 
-        button_ctr_man_up.setOnClickListener { BluetoothConnection(context!!).sendCommand("up") }
-        button_ctr_man_down.setOnClickListener { BluetoothConnection(context!!).sendCommand("down") }
-        button_ctr_man_left.setOnClickListener { BluetoothConnection(context!!).sendCommand("left") }
-        button_ctr_man_right.setOnClickListener { BluetoothConnection(context!!).sendCommand("right") }
-        button_ctr_man_stop.setOnClickListener {
-            //BluetoothConnection(context!!).sendCommand("stop")
-            Toast.makeText(context!!, "f", Toast.LENGTH_LONG).show()
-        }
+
     }
 
+    /**
+     * Funktion: handelTouch
+     * Input: MotionEvent
+     * Output: -
+     * Beschreibung: Fkt um Touch Position und Action am DPAD zu bestimmen
+     */
     fun handleTouch(m: MotionEvent) {
         val pointerCount = m.pointerCount
         view!!.dpad_mask.isDrawingCacheEnabled = true
@@ -92,73 +79,81 @@ class ControlFragmentMan : Fragment() {
             val actionIndex = m.actionIndex
             var actionString: String
             val vibratorService = context!!.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-            button_ctr_man_stop.text = bitmap.width.toString() + "   " + bitmap.height.toString()
-            if (x in 0..800 && y in 0..800) {
-                val pixel = bitmap.getPixel(x.toInt(), y.toInt())
-                when (action) {
-                    MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
-                        actionString = "DOWN"
-                        var changed = changeImg(pixel)
-                        button_ctr_man_left.text = x.toString()
-                        button_ctr_man_right.text = y.toString()
-                        if (action == MotionEvent.ACTION_DOWN) {
-                            //vibratorService.vibrate(10000000)
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                vibratorService.vibrate(VibrationEffect.createOneShot(1000000, -1))
+
+            when (action) {
+                MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
+                    if (x in 0..800 && y in 0..800) {
+                        val pixel = bitmap.getPixel(x.toInt(), y.toInt())
+                        if (pixel != prevPixel) {
+                            actionString = "DOWN"
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && changeImg(pixel)) {
+                                vibratorService.vibrate(VibrationEffect.createOneShot(100, -1))
                             }
-                            //vibration = true
-                            //HWE: 1. vco 2. phasenlagenvergleich 3. TP 4. f-Herunterteiler 5: referenzsignlal
-
+                            prevPixel = pixel
                         }
-                    }
-
-                    MotionEvent.ACTION_UP -> {
-                        actionString = "UP"
-                        view!!.dpad.setImageResource(R.drawable.dpad_normal)
-                        vibratorService.cancel()
-
 
                     }
+                }
+
+                MotionEvent.ACTION_UP -> {
+                    actionString = "UP"
+                    view!!.dpad.setImageResource(R.drawable.dpad_normal)
+                    vibratorService.cancel()
+                    BluetoothConnection(context!!).sendCommand("stop")
+                    prevPixel = -16908288
+
                 }
             }
 
         }
+
+
     }
 
+    /**
+     * Funktion: handelTouch
+     * Input: Pixelfarbe
+     * Output: Boolean
+     * Beschreibung: DPad - Überlagerung von Maske und DPad - abhängig von der Farbe (Touchposition) wird das Bild demensprechend gewechselt
+     */
     fun changeImg(pixel: Int): Boolean {
         var red = -16908288
         var yellow = -16843264
         var green = -33489408
         var blue = -33554178
         var magenta = -16908034
-        var changed = false
+        var pressed = true
         when (pixel) {
             //center
             red -> {
-                //if(view!!.dpad.)
                 view!!.dpad.setImageResource(R.drawable.dpad_center)
-                //view!!.dpad_center.visibility = View.VISIBLE
+                BluetoothConnection(context!!).sendCommand("stop")
             }
             //up
             yellow -> {
                 view!!.dpad.setImageResource(R.drawable.dpad_up)
+                BluetoothConnection(context!!).sendCommand("up")
             }
             //left
             green -> {
                 view!!.dpad.setImageResource(R.drawable.dpad_left)
+                BluetoothConnection(context!!).sendCommand("left")
             }
             //down
             blue -> {
                 view!!.dpad.setImageResource(R.drawable.dpad_down)
+                BluetoothConnection(context!!).sendCommand("down")
             }
             //right
             magenta -> {
                 view!!.dpad.setImageResource(R.drawable.dpad_right)
+                BluetoothConnection(context!!).sendCommand("right")
             }
+            else -> pressed = false
 
         }
 
-        return changed
+        return pressed
 
 
     }

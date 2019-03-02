@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-      tools:showIn="navigation_view">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
@@ -29,27 +29,18 @@
             </menu>
         </item>
 
-        <item
+
+        <group
+            android:id="@+id/nav_control_grp"
+            android:enabled="false">
+
+            <item
                 android:id="@+id/nav_control"
-                android:title="Steuerung"
-                android:enabled="false"
-                android:checkable="false"
-        >
-            <menu>
-                <group android:id="@+id/nav_control_grp" android:enabled="true">
-                    <item
-                            android:id="@+id/nav_control_aut"
-                            android:title="Automatisch"
-                            android:icon="@drawable/ic_menu_slideshow" android:checkable="true"/>
+                android:checkable="true"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Steuerung" />
+        </group>
 
-
-                    <item
-                            android:id="@+id/nav_control_man"
-                            android:title="Manuell"
-                            android:icon="@drawable/ic_menu_slideshow" android:checkable="true"/>
-                </group>
-            </menu>
-        </item>
 
         <item
                 android:id="@+id/nav_help"

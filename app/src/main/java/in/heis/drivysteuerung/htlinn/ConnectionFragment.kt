@@ -17,6 +17,7 @@ import android.widget.CompoundButton
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_connection.*
+import java.util.*
 
 
 class ConnectionFragment : Fragment() {
@@ -40,14 +41,19 @@ class ConnectionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activity!!.text_con_selecteddev.text = ConnectionFragment.selectedDevice
+        if (ConnectionFragment.selectedDevice == "Arduino") switch_con_selecedev.isChecked = true
 
         checkHW()
         makeList()
-        //TODO: entfernen des Schalters - unnötig
         switch_con_selecedev.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener {
             override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
-                if (isChecked) ConnectionFragment.selectedDevice = "Arduino"
-                else ConnectionFragment.selectedDevice = "Raspberry"
+                if (isChecked) {
+                    ConnectionFragment.selectedDevice = "Arduino"
+                    BluetoothConnection.m_myUUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb")
+                } else {
+                    ConnectionFragment.selectedDevice = "Raspberry"
+                    BluetoothConnection.m_myUUID = UUID.fromString("00001806-0000-1000-8000-00805f9b34fb")
+                }
 
                 activity!!.text_con_selecteddev.text = ConnectionFragment.selectedDevice
             }
@@ -90,7 +96,6 @@ class ConnectionFragment : Fragment() {
             } else {
                 val device: String = btDevice_list[position]
                 val address: String = device.substring(device.length - 17)
-
                 BluetoothConnection.m_address = address
                 ConnectionFragment.selectedAdress = device
                 connect()

@@ -5,26 +5,26 @@
 
     <group android:checkableBehavior="single">
         <item
-                android:id="@+id/nav_home"
-                android:icon="@drawable/ic_home_black_24dp"
-                android:title="Home"/>
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Home" />
         <item
-                android:id="@+id/nav_connection"
-                android:title="Verbindung"
-        >
+            android:id="@+id/nav_connection"
+            android:title="Verbindung">
             <menu>
                 <item
-                        android:id="@+id/nav_connection_con"
-                        android:title="Verbindung herstellen"
-                        android:icon="@drawable/ic_menu_manage" android:checkable="true"/>
-
+                    android:id="@+id/nav_connection_con"
+                    android:checkable="true"
+                    android:icon="@drawable/ic_connection"
+                    android:title="Verbindung herstellen" />
 
 
                 <item
-                        android:id="@+id/nav_connection_disc"
-                        android:title="Verbindung trennen"
-                        android:enabled="false"
-                        android:icon="@drawable/ic_menu_manage" android:checkable="true"/>
+                    android:id="@+id/nav_connection_disc"
+                    android:checkable="true"
+                    android:enabled="false"
+                    android:icon="@drawable/ic_connection"
+                    android:title="Verbindung trennen" />
 
             </menu>
         </item>
@@ -32,37 +32,39 @@
 
         <group
             android:id="@+id/nav_control_grp"
-            android:enabled="false">
+            android:enabled="true">
 
             <item
                 android:id="@+id/nav_control"
                 android:checkable="true"
-                android:icon="@drawable/ic_menu_slideshow"
+                android:icon="@drawable/ic_control"
                 android:title="Steuerung" />
         </group>
 
 
         <item
-                android:id="@+id/nav_help"
-                android:title="Hilfe"
-        >
+            android:id="@+id/nav_help"
+            android:title="Hilfe">
             <menu>
                 <item
-                        android:id="@+id/nav_help_prg"
-                        android:title="Programmierung"
-                        android:icon="@drawable/ic_menu_send" android:checkable="true"/>
+                    android:id="@+id/nav_help_prg"
+                    android:checkable="true"
+                    android:icon="@drawable/ic_help"
+                    android:title="Programmierung" />
 
 
                 <item
-                        android:id="@+id/nav_help_con"
-                        android:title="Verbindung"
-                        android:icon="@drawable/ic_menu_send" android:checkable="true"/>
+                    android:id="@+id/nav_help_con"
+                    android:checkable="true"
+                    android:icon="@drawable/ic_help"
+                    android:title="Verbindung" />
 
 
                 <item
-                        android:id="@+id/nav_help_ctr"
-                        android:title="Steuerung"
-                        android:icon="@drawable/ic_menu_send" android:checkable="true"/>
+                    android:id="@+id/nav_help_ctr"
+                    android:checkable="true"
+                    android:icon="@drawable/ic_help"
+                    android:title="Steuerung" />
 
 
             </menu>

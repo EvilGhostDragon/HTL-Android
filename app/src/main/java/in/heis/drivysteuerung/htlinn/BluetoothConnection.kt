@@ -19,6 +19,7 @@ class BluetoothConnection(val context: Context) : AsyncTask<Void, Void, Boolean>
     private var connectSuccess: Boolean = true
 
     companion object {
+        //Raspberry:
         var m_myUUID: UUID = UUID.fromString("00001806-0000-1000-8000-00805f9b34fb")
         var m_bluetoothSocket: BluetoothSocket? = null
         val m_bluetoothAdapter: BluetoothAdapter? = BluetoothAdapter.getDefaultAdapter()
@@ -88,7 +89,6 @@ class BluetoothConnection(val context: Context) : AsyncTask<Void, Void, Boolean>
      *                  (3) Verbindung herstellen
      */
     override fun doInBackground(vararg p0: Void?): Boolean? {
-
         if (m_bluetoothSocket == null || !m_isConnected) {
             val device: BluetoothDevice = m_bluetoothAdapter!!.getRemoteDevice(
                 m_address
@@ -117,7 +117,7 @@ class BluetoothConnection(val context: Context) : AsyncTask<Void, Void, Boolean>
     override fun onPostExecute(result: Boolean?) {
         super.onPostExecute(result)
         if (!connectSuccess) {
-            Toast.makeText(context, "", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, BluetoothConnection.m_address, Toast.LENGTH_SHORT).show()
         } else {
             m_isConnected = true
         }

@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_control.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 import kotlin.system.exitProcess
 
@@ -27,7 +28,7 @@ class SelectMenu(val itemId: Int?, override val containerView: View?, val activi
         when (itemId) {
             R.id.action_settings -> {
                 Toast.makeText(containerView?.context, "k", Toast.LENGTH_LONG).show()
-                btn_pressed = !btn_pressed
+                switch_ctrl_21.visibility = View.VISIBLE
             }
             R.id.action_exit -> {
                 exitProcess(-1)

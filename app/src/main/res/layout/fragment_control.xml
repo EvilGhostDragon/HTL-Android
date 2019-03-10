@@ -5,41 +5,146 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ControlFragment"
+    android:layout_weight="2"
+    android:paddingTop="10dp"
     android:paddingBottom="50dp"
-    android:paddingTop="50dp">
+    tools:context=".ControlFragment">
 
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/seekBar"
-        android:layout_marginBottom="10dp"
-        android:text="Geschwindigkeit" />
-
-    <SeekBar
-        android:id="@+id/seekBar"
-
-        style="@android:style/Widget.Material.SeekBar"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:max="10"
-        android:progress="3" />
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="3dp"
+            android:weightSum="2">
+
+
+            <Switch
+                android:id="@+id/switch_ctrl_11"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Automatisch" />
+
+
+            <Switch
+                android:id="@+id/switch_ctrl_12"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Unbekannt"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="3dp"
+            android:weightSum="2">
+
+            <Switch
+                android:id="@+id/switch_ctrl_21"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Linienfolger"
+                android:textColor="@color/colorDisabled"
+                android:clickable="false" />
+
+            <Switch
+                android:id="@+id/switch_ctrl_22"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Ultraschallsensoren"
+                android:textColor="@color/colorDisabled"
+                android:clickable="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="3dp"
+            android:weightSum="2">
+
+            <Switch
+                android:id="@+id/switch_ctrl_31"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Unbekannt"
+                android:textColor="@color/colorDisabled"
+                android:clickable="false" />
+
+            <Switch
+                android:id="@+id/switch_ctrl_32"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Unbekannt"
+                android:textColor="@color/colorDisabled"
+                android:clickable="false" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="3dp"
+            android:weightSum="2">
+
+            <Switch
+
+                android:id="@+id/switch_ctrl_41"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Lock D-Pad" />
+
+            <Switch
+                android:id="@+id/switch_ctrl_42"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Unbekannt"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+    </LinearLayout>
+
 
     <RelativeLayout
-        android:layout_centerInParent="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_above="@id/seekBar_ctrl"
+        android:layout_centerInParent="true">
 
 
         <ImageView
             android:id="@+id/dpad_mask"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
             android:layout_margin="35dp"
+            android:adjustViewBounds="true"
             android:scaleType="fitCenter"
             android:src="@drawable/dpad_mask"
             android:visibility="invisible" />
@@ -48,12 +153,27 @@
             android:id="@+id/dpad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
             android:layout_margin="35dp"
+            android:adjustViewBounds="true"
             android:scaleType="fitCenter"
             android:src="@drawable/dpad_normal" />
 
 
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/seekBar_ctrl"
+        android:layout_marginBottom="10dp"
+        android:text="Geschwindigkeit" />
+
+
+    <SeekBar
+        android:id="@+id/seekBar_ctrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:progress="1" />
 
 </RelativeLayout>

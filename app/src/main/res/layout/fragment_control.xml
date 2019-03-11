@@ -150,7 +150,7 @@
                 android:scaleType="fitCenter"
                 android:layout_centerInParent="true"
                 android:src="@drawable/dpad_mask"
-                android:visibility="invisible"/>
+                android:visibility="visible"/>
 
         <ImageView
                 android:id="@+id/dpad"
@@ -160,7 +160,8 @@
                 android:layout_centerInParent="true"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:src="@drawable/dpad_normal"/>
+                android:src="@drawable/dpad_normal"
+        />
 
 
     </RelativeLayout>

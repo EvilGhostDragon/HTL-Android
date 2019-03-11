@@ -166,7 +166,7 @@ class ControlFragment : Fragment() {
 
             when (action) {
                 MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
-                    if (x in 0..800 && y in 0..800 && id == 0) {
+                    if (x in 0..dpad.width && y in 0..dpad.height && id == 0) {
                         val pixel = bitmap.getPixel(x.toInt(), y.toInt())
                         if (pixel != prevPixel) {
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && changeImg(pixel)) {

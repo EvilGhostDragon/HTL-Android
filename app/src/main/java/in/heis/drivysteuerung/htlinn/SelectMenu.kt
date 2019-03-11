@@ -86,6 +86,8 @@ class SelectMenu(val itemId: Int?, override val containerView: View?, val activi
             .replace(R.id.ContentPlaceholder, fragment)
             .commit()
 
+        if (R.id.nav_help_con != itemId) activity.nav_view.menu.findItem(R.id.nav_help_con).isChecked = false
+
         if (activity.nav_view.menu.findItem(itemId!!) != null) {
 
             val id: MenuItem? = activity.nav_view.checkedItem

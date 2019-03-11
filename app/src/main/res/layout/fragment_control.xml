@@ -1,179 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="2"
-    android:paddingTop="10dp"
-    android:paddingBottom="50dp"
-    tools:context=".ControlFragment">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:paddingTop="10dp"
+              android:paddingBottom="50dp"
+              android:weightSum="20"
+              tools:context=".ControlFragment"
+              android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="5"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:padding="3dp"
-            android:weightSum="2">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="3dp"
+                android:weightSum="2">
 
 
             <Switch
-                android:id="@+id/switch_ctrl_11"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Automatisch" />
+                    android:id="@+id/switch_ctrl_11"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Automatisch"/>
 
 
             <Switch
-                android:id="@+id/switch_ctrl_12"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Unbekannt"
-                android:visibility="invisible" />
+                    android:id="@+id/switch_ctrl_12"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Unbekannt"
+                    android:visibility="invisible"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:padding="3dp"
-            android:weightSum="2">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="3dp"
+                android:weightSum="2">
 
             <Switch
-                android:id="@+id/switch_ctrl_21"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Linienfolger"
-                android:textColor="@color/colorDisabled"
-                android:clickable="false" />
+                    android:id="@+id/switch_ctrl_21"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Linienfolger"
+                    android:textColor="@color/colorDisabled"
+                    android:clickable="false"/>
 
             <Switch
-                android:id="@+id/switch_ctrl_22"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Ultraschallsensoren"
-                android:textColor="@color/colorDisabled"
-                android:clickable="false" />
+                    android:id="@+id/switch_ctrl_22"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Ultraschallsensoren"
+                    android:textColor="@color/colorDisabled"
+                    android:clickable="false"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:padding="3dp"
-            android:weightSum="2">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="3dp"
+                android:weightSum="2">
 
             <Switch
-                android:id="@+id/switch_ctrl_31"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Unbekannt"
-                android:textColor="@color/colorDisabled"
-                android:clickable="false" />
+                    android:id="@+id/switch_ctrl_31"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Unbekannt"
+                    android:textColor="@color/colorDisabled"
+                    android:clickable="false"/>
 
             <Switch
-                android:id="@+id/switch_ctrl_32"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Unbekannt"
-                android:textColor="@color/colorDisabled"
-                android:clickable="false" />
+                    android:id="@+id/switch_ctrl_32"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Unbekannt"
+                    android:textColor="@color/colorDisabled"
+                    android:clickable="false"/>
         </LinearLayout>
 
         <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray" />
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:padding="3dp"
-            android:weightSum="2">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="3dp"
+                android:weightSum="2">
 
             <Switch
 
-                android:id="@+id/switch_ctrl_41"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Lock D-Pad" />
+                    android:id="@+id/switch_ctrl_41"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Lock D-Pad"/>
 
             <Switch
-                android:id="@+id/switch_ctrl_42"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Unbekannt"
-                android:visibility="invisible" />
+                    android:id="@+id/switch_ctrl_42"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Unbekannt"
+                    android:visibility="invisible"/>
         </LinearLayout>
 
     </LinearLayout>
 
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/seekBar_ctrl"
-        android:layout_centerInParent="true">
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="13"
+            android:layout_above="@id/seekBar_ctrl">
 
 
         <ImageView
-            android:id="@+id/dpad_mask"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="35dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/dpad_mask"
-            android:visibility="invisible" />
+                android:id="@+id/dpad_mask"
+                android:padding="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:layout_centerInParent="true"
+                android:src="@drawable/dpad_mask"
+                android:visibility="invisible"/>
 
         <ImageView
-            android:id="@+id/dpad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="35dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/dpad_normal" />
+                android:id="@+id/dpad"
+                android:padding="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/dpad_normal"/>
 
 
     </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/seekBar_ctrl"
-        android:layout_marginBottom="10dp"
-        android:text="Geschwindigkeit" />
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:orientation="vertical"
+                  android:layout_weight="2"
+                  android:layout_gravity="center_horizontal"
+                  android:padding="10dp"
+                  android:paddingRight="10dp"
+                  android:paddingLeft="10dp"
+
+    >
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Geschwindigkeit"/>
 
 
-    <SeekBar
-        android:id="@+id/seekBar_ctrl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:progress="1" />
-
-</RelativeLayout>
+        <SeekBar
+                android:id="@+id/seekBar_ctrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progress="1"/>
+    </LinearLayout>
+</LinearLayout>

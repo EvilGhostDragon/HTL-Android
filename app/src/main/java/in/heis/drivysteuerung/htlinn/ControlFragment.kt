@@ -166,14 +166,12 @@ class ControlFragment : Fragment() {
 
             when (action) {
                 MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
-
-                    if (x in 0..800 && y in 0..800) {
+                    if (x in 0..800 && y in 0..800 && id == 0) {
                         val pixel = bitmap.getPixel(x.toInt(), y.toInt())
                         if (pixel != prevPixel) {
-                            actionString = "DOWN"
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && changeImg(pixel)) {
                                 vibratorService.vibrate(VibrationEffect.createOneShot(100, -1))
-                            }
+                            } else vibratorService.vibrate(100)
                             prevPixel = pixel
                         }
 
@@ -181,7 +179,6 @@ class ControlFragment : Fragment() {
                 }
 
                 MotionEvent.ACTION_UP -> {
-                    actionString = "UP"
                     if (!switch_ctrl_41.isChecked) {
                         view!!.dpad.setImageResource(R.drawable.dpad_normal)
                         vibratorService.cancel()

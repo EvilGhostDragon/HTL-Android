@@ -93,6 +93,7 @@ class ConnectionFragment : Fragment() {
 
             if (btDevice_list[position] == addNewDevTxt) {
                 SelectMenu(R.id.nav_help_con, drawer_layout, activity!!).action()
+                HelpConnectionFragment()
             } else {
                 val device: String = btDevice_list[position]
                 val address: String = device.substring(device.length - 17)

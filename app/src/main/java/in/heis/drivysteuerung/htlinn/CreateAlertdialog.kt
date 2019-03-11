@@ -1,9 +1,7 @@
 package `in`.heis.drivysteuerung.htlinn
 
 import android.content.Context
-import android.content.DialogInterface
 import android.support.v7.app.AlertDialog
-import android.widget.Toast
 
 class CreateAlertdialog(val context: Context, val message:String, val titel:String?){
 
@@ -45,6 +43,17 @@ class CreateAlertdialog(val context: Context, val message:String, val titel:Stri
 
         val builder = AlertDialog.Builder(context)
             .setTitle("Fehler")
+            .setMessage(message)
+            .setPositiveButton("OK") { dialog, which ->
+
+            }
+            .show()
+    }
+
+    fun custom_titel() {
+
+        val builder = AlertDialog.Builder(context)
+            .setTitle(titel)
             .setMessage(message)
             .setPositiveButton("OK") { dialog, which ->
 

@@ -115,7 +115,6 @@ class ConnectionFragment : Fragment() {
         SelectMenu.view = activity!!.drawer_layout
         SelectMenu.act = activity!!
 
-        println(BluetoothConnection.m_myUUID)
         AlertDialog.Builder(context!!)
             .setTitle("Verbindung herstellen?")
             .setMessage(selectedDivText_info)

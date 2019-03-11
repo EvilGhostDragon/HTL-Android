@@ -7,7 +7,7 @@
     android:background="@drawable/text_background"
     android:orientation="vertical"
     android:weightSum="20"
-    tools:context=".HelpConnectionFragment">
+    tools:context=".HelpProgrammingFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_below="@id/text_titel"
-            android:text="Verbindung"
+            android:text="Programmierung"
             android:textColor="@android:color/white"
             android:textSize="21sp" />
 
@@ -73,7 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
-                        android:text="1 Koppeln"
+                        android:text="1 Unbekannt"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
@@ -83,7 +83,7 @@
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Gehe in die Bluetooth-einstellung deines Handys und starte eine Gerätesuche. \n Raspberry: starte das Python Script und folge den Anweisungen \nArduino: Verbinde dich mit HC-05 und gib falls nötig das Passwort: 1234 ein"
+                        android:text="blblblb blbl blbl blb bl blb lbl b bllblb lbl\nblblbl lblb lblb lblb lbl bl\nblb lblblbblblbl blblblblbl blblbl blbl blblbl lblbl b\nlblblb lblb lbl blblblblblbllblb lblblblblblbl blblblblblblblb lb"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
 

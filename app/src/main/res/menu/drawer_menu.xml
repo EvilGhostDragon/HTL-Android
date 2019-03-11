@@ -37,6 +37,7 @@
             <item
                 android:id="@+id/nav_control"
                 android:checkable="true"
+                android:enabled="false"
                 android:icon="@drawable/ic_control"
                 android:title="Steuerung" />
         </group>

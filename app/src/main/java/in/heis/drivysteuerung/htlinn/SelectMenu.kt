@@ -4,10 +4,8 @@ import android.app.Activity
 import android.support.v4.app.FragmentActivity
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_control.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 import kotlin.system.exitProcess
 
@@ -26,12 +24,13 @@ class SelectMenu(val itemId: Int?, override val containerView: View?, val activi
     fun action() {
 
         when (itemId) {
-            R.id.action_settings -> {
-                Toast.makeText(containerView?.context, "k", Toast.LENGTH_LONG).show()
-                switch_ctrl_21.visibility = View.VISIBLE
-            }
             R.id.action_exit -> {
                 exitProcess(-1)
+            }
+            R.id.action_about -> {
+                val message =
+                    "Diplomarbeit 2018/19\nAutor: Simon Heis\nMitarbeiter: Simon L. Elias K. \nE-Mail: school@heis.in \n\nProjekt im Sinne einer Diplomarbeit an der HTL Anichstraße "
+                CreateAlertdialog(containerView?.context!!, message, "About").custom_titel()
             }
             R.id.nav_connection_disc -> {
                 BluetoothConnection(containerView?.context!!).disconnect()
@@ -70,6 +69,12 @@ class SelectMenu(val itemId: Int?, override val containerView: View?, val activi
 
             R.id.nav_help_con -> {
                 HelpConnectionFragment()
+            }
+            R.id.nav_help_ctr -> {
+                HelpControlFragment()
+            }
+            R.id.nav_help_prg -> {
+                HelpProgrammingFragment()
             }
             else -> {
                 HomeFragment()

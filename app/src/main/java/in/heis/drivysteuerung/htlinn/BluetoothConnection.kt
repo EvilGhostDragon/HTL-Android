@@ -117,7 +117,7 @@ class BluetoothConnection(val context: Context) : AsyncTask<Void, Void, Boolean>
     override fun onPostExecute(result: Boolean?) {
         super.onPostExecute(result)
         if (!connectSuccess) {
-            Toast.makeText(context, BluetoothConnection.m_address, Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context, BluetoothConnection.m_address, Toast.LENGTH_SHORT).show()
         } else {
             m_isConnected = true
         }
@@ -133,7 +133,7 @@ class BluetoothConnection(val context: Context) : AsyncTask<Void, Void, Boolean>
 
     fun disconnect() {
 
-        Toast.makeText(context, "disconnecting", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Verbindung wurde erfolreich getrennt", Toast.LENGTH_LONG).show()
         if (m_bluetoothSocket != null) {
             try {
                 m_bluetoothSocket!!.close()

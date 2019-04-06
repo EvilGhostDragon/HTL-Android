@@ -1,6 +1,6 @@
 # HTL-Android
 
-using now GitHub instat of BitBucket
+using now GitHub instead of BitBucket
 
 ------
 
